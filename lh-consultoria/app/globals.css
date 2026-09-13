@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design System — LH Consultoria
+  Japandi: Ma (espaço vazio) · Shibui (beleza sutil) · Kintsugi (linhas douradas)
+*/
+
+@layer base {
+  :root {
+    --color-charcoal: #1a1a1a;
+    --color-charcoal-light: #262626;
+    --color-gold: #c9a96e;
+    --color-offwhite: #f5f2ed;
+  }
+
+  * {
+    @apply border-gold/20;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-offwhite font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-offwhite;
+  }
+
+  /* Foco visível para acessibilidade (WCAG AA) */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Linha fina dourada divisória — conceito Kintsugi */
+  .divider-kintsugi {
+    @apply h-px w-full bg-kintsugi-line;
+  }
+
+  .divider-kintsugi-vertical {
+    @apply h-full w-px bg-gradient-to-b from-transparent via-gold to-transparent;
+  }
+
+  /* Espaçamento generoso entre seções — conceito Ma */
+  .section-padding {
+    @apply px-6 py-24 sm:px-10 sm:py-32 lg:px-16;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-wider3 text-gold;
+  }
+
+  .prose-editorial {
+    @apply max-w-prose text-offwhite/80;
+  }
+}
