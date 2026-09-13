@@ -5,3 +5,7 @@ node_modules/
 .vercel
 npm-debug.log*
 enviar-primeira-vez.bat
+
+# Logs gerados pelos scripts .bat (nunca devem ser versionados —
+# se forem, travam a troca de branch durante a execucao do proprio script)
+log-*.txt
