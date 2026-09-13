@@ -12,7 +12,7 @@ Domínio: **www.lhconsultoriaempresarial.com.br**
 - [x] **Fase 1** — Estrutura de pastas + Design System (Tailwind, globals.css, fontes)
 - [x] **Fase 2** — Layout raiz (Navbar + Footer + ThemeProvider)
 - [x] **Fase 3** — Landing page completa (Hero, Storytelling, Serviços, Vitrine, CTA)
-- [ ] Fase 4 — Migrações SQL no Supabase + dados iniciais
+- [x] **Fase 4** — Migrações SQL no Supabase + dados iniciais (ver `supabase/COMO-APLICAR.md`)
 - [ ] Fase 5 — Página de produtos
 - [ ] Fase 6 — Diagnóstico "7 Sinais"
 - [ ] Fase 7 — Página de contato
