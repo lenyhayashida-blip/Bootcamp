@@ -1,0 +1,69 @@
+=== Consultando o GitHub ===
+
+=== Ultimos commits que estao na main do GitHub ===
+e0e933c Merge pull request #1 from lenyhayashida-blip/feature/lh-consultoria-fase1-20260913-161121
+3353fbe Fase 1 - estrutura de pastas e design system (LH Consultoria)
+8b9fc57 Atualizacao
+baa7fd9 Primeiro commit: estrutura inicial do projeto (Next.js)
+fead634 Primeiro commit: estrutura inicial do projeto (Next.js)
+2392464 Primeiro commit: estrutura inicial do projeto (Next.js)
+
+=== Pastas e arquivos na raiz da main do GitHub ===
+.env.example
+.gitignore
+Claude outputs
+```markdown.docx
+enviar-atualizacoes.bat
+enviar-para-revisao.bat
+lh-consultoria
+lib
+next.config.js
+package.json
+pages
+readme.docx
+styles
+
+=== Arquivos do projeto LH Consultoria ja publicados na main ===
+lh-consultoria/.env.example
+lh-consultoria/.eslintrc.json
+lh-consultoria/.gitignore
+lh-consultoria/.lintstagedrc.json
+lh-consultoria/.prettierrc
+lh-consultoria/CLAUDE.md
+lh-consultoria/README.md
+lh-consultoria/app/(admin)/.gitkeep
+lh-consultoria/app/(auth)/.gitkeep
+lh-consultoria/app/(marketing)/.gitkeep
+lh-consultoria/app/(membros)/.gitkeep
+lh-consultoria/app/api/.gitkeep
+lh-consultoria/app/globals.css
+lh-consultoria/app/layout.tsx
+lh-consultoria/app/page.tsx
+lh-consultoria/components/admin/.gitkeep
+lh-consultoria/components/marketing/.gitkeep
+lh-consultoria/components/membros/.gitkeep
+lh-consultoria/components/shared/Logo.tsx
+lh-consultoria/components/ui/Button.tsx
+lh-consultoria/components/ui/Container.tsx
+lh-consultoria/lib/hotmart/.gitkeep
+lh-consultoria/lib/supabase/.gitkeep
+lh-consultoria/lib/utils/cn.ts
+lh-consultoria/lib/validators/.gitkeep
+lh-consultoria/next.config.js
+lh-consultoria/package.json
+lh-consultoria/postcss.config.js
+lh-consultoria/public/images/.gitkeep
+lh-consultoria/public/pdfs/.gitkeep
+lh-consultoria/scripts/pre-commit-hook.txt
+lh-consultoria/supabase/migrations/.gitkeep
+lh-consultoria/tailwind.config.ts
+lh-consultoria/tsconfig.json
+
+=== Branches de revisao existentes ===
+  origin/HEAD -> origin/main
+  origin/feature/atualizacao-20260913-160731
+  origin/feature/atualizacao-20260913-160828
+  origin/feature/lh-consultoria-fase1-20260913-161121
+  origin/main
+
+=== FIM ===
