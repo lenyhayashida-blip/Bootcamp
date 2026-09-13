@@ -10,7 +10,7 @@ Domínio: **www.lhconsultoriaempresarial.com.br**
 ## Status
 
 - [x] **Fase 1** — Estrutura de pastas + Design System (Tailwind, globals.css, fontes)
-- [ ] Fase 2 — Layout raiz (Navbar + Footer + ThemeProvider)
+- [x] **Fase 2** — Layout raiz (Navbar + Footer + ThemeProvider)
 - [ ] Fase 3 — Landing page completa
 - [ ] Fase 4 — Migrações SQL no Supabase + dados iniciais
 - [ ] Fase 5 — Página de produtos
