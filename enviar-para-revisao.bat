@@ -2,44 +2,64 @@
 setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
+REM O log agora se chama log-diagnostico.txt e esta no .gitignore,
+REM para nunca mais interferir na troca de branches do proprio script.
+set LOG=%~dp0log-diagnostico.txt
+
 for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd-HHmmss"') do set TS=%%i
-set BRANCH=feature/atualizacao-%TS%
+set BRANCH=feature/lh-consultoria-fase1-%TS%
 
 (
-echo === Criando branch de revisao: %BRANCH% ===
+echo === 1. Branch atual ===
+git branch --show-current
+echo.
+echo === 2. Descartando alteracoes locais nos logs antigos ===
+git checkout -- log-revisao.txt
+git checkout -- log-envio.txt
+echo.
+echo === 3. Voltando para a main ===
 git checkout main
 git pull origin main
+echo.
+echo === 4. Removendo os logs antigos do controle de versao ===
+git rm --cached log-revisao.txt
+git rm --cached log-envio.txt
+echo.
+echo === 5. O que o git esta enxergando agora ===
+git status --short
+echo.
+echo === 6. Criando a branch de revisao: %BRANCH% ===
 git checkout -b %BRANCH%
 echo.
-echo === git add / commit ===
+echo === 7. Commit ===
 git add -A
-git commit -m "Atualizacao do projeto (revisao pendente)"
+git commit -m "Fase 1 - estrutura de pastas e design system (LH Consultoria)" -m "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01WCeUixBZ9BawhUzMDzfR4H"
 echo.
-echo === git push ===
+echo === 8. Enviando para o GitHub ===
 git push -u origin %BRANCH%
 echo.
-echo === Voltando para main ===
+echo === 9. Voltando para a main ===
 git checkout main
 echo.
-echo === FIM ===
-) > log-revisao.txt 2>&1
-
+echo === 10. Ultimos commits ===
+git log --oneline -5
 echo.
-echo Procurando o link do Pull Request no log...
+echo === FIM ===
+) > "%LOG%" 2>&1
+
 set PRURL=
-for /f "tokens=1" %%u in ('findstr /R "https://github.com/.*/pull/new/" log-revisao.txt') do set PRURL=%%u
+REM A linha do git vem como:  remote:      https://github.com/.../pull/new/...
+REM entao a URL e o SEGUNDO token, nao o primeiro.
+for /f "tokens=2" %%u in ('findstr /R "https://github.com/.*/pull/new/" "%LOG%"') do set PRURL=%%u
 
 if defined PRURL (
-  echo Link encontrado: %PRURL%
-  echo Abrindo no navegador...
+  echo Abrindo o Pull Request no navegador...
   start "" "%PRURL%"
 ) else (
-  echo Nao consegui achar o link automaticamente.
-  echo Abra o log-revisao.txt para ver o que aconteceu, ou acesse o GitHub manualmente.
+  echo Nao encontrei o link do Pull Request. Veja o log que vai abrir agora.
 )
 
-notepad log-revisao.txt
+notepad "%LOG%"
 echo.
-echo Revise as mudancas no Pull Request que abriu no navegador.
-echo Quando aprovar, clique em "Merge pull request" no GitHub — a Vercel publica sozinha depois disso.
+echo Revise as mudancas no Pull Request e clique em "Merge pull request" quando aprovar.
 pause
