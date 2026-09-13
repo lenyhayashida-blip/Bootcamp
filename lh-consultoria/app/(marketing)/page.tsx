@@ -1,34 +1,29 @@
+import { Hero } from '@/components/marketing/Hero';
+import { StorytellingSection } from '@/components/marketing/StorytellingSection';
+import { ServicesGrid } from '@/components/marketing/ServicesGrid';
+import { ProductsShowcase } from '@/components/marketing/ProductsShowcase';
+import { NewsletterCTA } from '@/components/marketing/NewsletterCTA';
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
 
-/**
- * FASE 2 — home dentro do grupo (marketing), ja com Navbar e Footer.
- * As secoes completas da landing (Hero, ServicesGrid, StorytellingSection,
- * ProductsShowcase, NewsletterCTA) entram na FASE 3.
- */
 export default function Home() {
   return (
-    <Container className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-10 py-30 text-center">
-      <div className="divider-kintsugi max-w-[120px]" />
+    <>
+      <Hero />
 
-      <p className="eyebrow">LH Consultoria</p>
+      {/* Faixa de qualificacao do publico — direta, sem rodeio */}
+      <section className="border-y border-gold/15 bg-charcoal-light">
+        <Container className="py-18">
+          <p className="mx-auto max-w-3xl text-center font-serif text-xl leading-relaxed sm:text-2xl">
+            Para CEOs de empresas que faturam entre R$ 500 mil e R$ 5 milhões
+            por mês — e que cresceram mais rápido do que os próprios processos.
+          </p>
+        </Container>
+      </section>
 
-      <h1 className="max-w-3xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-        Sua empresa é familiar,
-        <br /> ou é uma família que tem um CNPJ?
-      </h1>
-
-      <p className="prose-editorial text-lg">
-        A diferença vale milhões. Descubra antes que custe.
-      </p>
-
-      <Button variant="primary">Fazer o Diagnóstico em 7 Sinais</Button>
-
-      <div className="divider-kintsugi max-w-[120px]" />
-
-      <p className="text-xs uppercase tracking-wider2 text-offwhite/40">
-        Fase 2 — Layout raiz · Próxima fase: Landing Page completa
-      </p>
-    </Container>
+      <StorytellingSection />
+      <ServicesGrid />
+      <ProductsShowcase />
+      <NewsletterCTA />
+    </>
   );
 }
