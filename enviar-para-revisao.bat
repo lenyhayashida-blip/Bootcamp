@@ -48,7 +48,9 @@ echo === FIM ===
 ) > "%LOG%" 2>&1
 
 set PRURL=
-for /f "tokens=1" %%u in ('findstr /R "https://github.com/.*/pull/new/" "%LOG%"') do set PRURL=%%u
+REM A linha do git vem como:  remote:      https://github.com/.../pull/new/...
+REM entao a URL e o SEGUNDO token, nao o primeiro.
+for /f "tokens=2" %%u in ('findstr /R "https://github.com/.*/pull/new/" "%LOG%"') do set PRURL=%%u
 
 if defined PRURL (
   echo Abrindo o Pull Request no navegador...
