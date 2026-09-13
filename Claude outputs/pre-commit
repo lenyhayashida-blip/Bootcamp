@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+# Pre-commit obrigatorio — CLAUDE.md secao 8.8
+# 1) bloqueia .env staged  2) lint-staged  3) type-check
+
+echo "Verificando se algum .env foi staged..."
+if git diff --cached --name-only | grep -E '(^|/)\.env(\.|$)' | grep -v '\.env\.example$'; then
+  echo ""
+  echo "COMMIT BLOQUEADO: um arquivo .env está staged."
+  echo "Nunca faça commit de variáveis de ambiente reais. Use .env.example."
+  exit 1
+fi
+
+echo "Rodando lint-staged..."
+npx lint-staged || exit 1
+
+echo "Rodando type-check..."
+npm run type-check || exit 1
+
+echo "Pre-commit OK."
